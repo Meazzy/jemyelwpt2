@@ -28,16 +28,6 @@ public class fichierlire {
 			while ((line = in.readLine()) != null) {
 				String[] pair = line.split(" ");
 
-		     //	Plats plat01 = new Plats(pair[plat1], Double.valueOf(pair[prix1]));
-			//	plat01.afficher();
-
-			//	Plats plat02 = new Plats(pair[plat2], Double.valueOf(pair[prix2]));
-			//	plat02.afficher();
-
-			//	Plats plat03 = new Plats(pair[plat3], Double.valueOf(pair[prix3]));
-			//	plat03.afficher();
-
-		   // System.out.println("---------------------------------------------------------");
 				System.out.println("Bienvenue chez Barette!" + "\n\n" + "Factures : " + "\n");
 
 				Commandes commande1 = new Commandes(pair[commande01], pair[plats01], Integer.parseInt(pair[qt01]));
