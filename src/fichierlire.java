@@ -1,35 +1,27 @@
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class fichierlire {
 
 	public static void main(String[] args) throws IOException {
 
-		ArrayList<String> test = new ArrayList<>();
-		int i = 0;
 		int commande01 = 15, plats01 = 16, qt01 = 17;
 		int commande02 = 18, plats02 = 19, qt02 = 20;
 		int commande03 = 21, plats03 = 22, qt03 = 23;
 
-		int plat1 = 7, prix1 = 8;
-		int plat2 = 9, prix2 = 10;
-		int plat3 = 11, prix3 = 12;
+		boolean veriter = false;
 
 		// Lecture du fichier.
 		try (BufferedReader in = new BufferedReader(new FileReader("files/teston.txt"))) {
 			String line;
+
+			System.out.println("Bienvenue chez Barette!" + "\n" + "Factures : " + "\n");
+
 			while ((line = in.readLine()) != null) {
 				String[] pair = line.split(" ");
 
-				System.out.println("Bienvenue chez Barette!" + "\n\n" + "Factures : " + "\n");
+				veriter = true;
 
 				// Les Objets Commande.
 				Commandes commande1 = new Commandes(pair[commande01], pair[plats01], Integer.parseInt(pair[qt01]));
@@ -72,13 +64,15 @@ public class fichierlire {
 					commande3.afficher();
 
 				}
-
 			}
 
 			// Message d'erreur si le fichier de respecte pas les memes normes que
 			// teston.txt
 		} catch (Exception e) {
-			System.out.println(" « Le fichier ne respecte pas le format\r\n" + "demandé ! ». ");
+
+			System.out.println(
+					"\n2 ERREUR POSSIBLES : « La suite du fichier ne respecte pas la norme correct ! » OU « Le fichier ne respecte pas le format\r\n"
+							+ "demandé ! ». ");
 		}
 
 	}
