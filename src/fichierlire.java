@@ -23,6 +23,7 @@ public class fichierlire {
 		int plat2 = 9, prix2 = 10;
 		int plat3 = 11, prix3 = 12;
 
+		// Lecture du fichier.
 		try (BufferedReader in = new BufferedReader(new FileReader("files/teston.txt"))) {
 			String line;
 			while ((line = in.readLine()) != null) {
@@ -30,11 +31,11 @@ public class fichierlire {
 
 				System.out.println("Bienvenue chez Barette!" + "\n\n" + "Factures : " + "\n");
 
+				// Les Objets Commande.
 				Commandes commande1 = new Commandes(pair[commande01], pair[plats01], Integer.parseInt(pair[qt01]));
 				Commandes commande2 = new Commandes(pair[commande02], pair[plats02], Integer.parseInt(pair[qt02]));
 				Commandes commande3 = new Commandes(pair[commande03], pair[plats03], Integer.parseInt(pair[qt03]));
 
-				
 				if (pair[commande02].equals(pair[commande03])) {
 					double nb = 0;
 
@@ -52,8 +53,9 @@ public class fichierlire {
 				} else if (pair[commande01].equals(pair[commande02])) {
 					double nb = 0;
 
-					nb = commande1.prixTotal( Integer.parseInt(pair[qt01]), pair[plats01]) + commande2.prixTotal( Integer.parseInt(pair[qt02]), pair[plats02]) ;
-					
+					nb = commande1.prixTotal(Integer.parseInt(pair[qt01]), pair[plats01])
+							+ commande2.prixTotal(Integer.parseInt(pair[qt02]), pair[plats02]);
+
 					commande1.modif(nb);
 					commande1.affichernv();
 
@@ -73,6 +75,8 @@ public class fichierlire {
 
 			}
 
+			// Message d'erreur si le fichier de respecte pas les memes normes que
+			// teston.txt
 		} catch (Exception e) {
 			System.out.println(" « Le fichier ne respecte pas le format\r\n" + "demandé ! ». ");
 		}
