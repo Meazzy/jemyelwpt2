@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 public class Commandes {
 
@@ -55,12 +56,24 @@ public class Commandes {
 	}
 
 	public void afficher() {
-		System.out.print(this.client + " " + prixTotal(quantite, plats) + "$" + "\n");
+
+		DecimalFormat df = new DecimalFormat();
+		df.setMaximumFractionDigits(2); // arrondi à 2 chiffres apres la virgules
+		df.setMinimumFractionDigits(2);
+		df.setDecimalSeparatorAlwaysShown(true);
+
+		System.out.print(this.client + "\t" + df.format(prixTotal(quantite, plats)) + "$" + "\n");
 
 	}
 
 	public void affichernv() {
-		System.out.print(this.client + " " + modif(tot) + "$" + "\n");
+
+		DecimalFormat df = new DecimalFormat();
+		df.setMaximumFractionDigits(2); // arrondi à 2 chiffres apres la virgules
+		df.setMinimumFractionDigits(2);
+		df.setDecimalSeparatorAlwaysShown(true);
+
+		System.out.print(this.client + "\t" + df.format(modif(tot)) + "$" + "\n");
 
 	}
 }
